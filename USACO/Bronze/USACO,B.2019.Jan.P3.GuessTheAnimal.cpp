@@ -13,6 +13,7 @@ int main() {
     int num_entry = 0;
     cin >> num_entry;
 
+    //Use 2D Array to store the entries
     vector<vector<string>> animalQuestions(num_entry);
 
     for (int i=0;i<num_entry;i++) {
@@ -28,14 +29,18 @@ int main() {
 
     int num_match =0;
     int max_num_match =0;
-    
+
+    //Loop and compare all charecteristics of two animals.
     for (int i=0;i<num_entry;i++) {
         for (int j=i+1;j<num_entry;j++) {
         num_match=1; 
+        //Check for common charecteristics.
         for (const auto& animalQ : animalQuestions[i]) {
                  for (const auto& CompanimalQ : animalQuestions[j]) {
                     if (animalQ == CompanimalQ ){   
+                        //Count the charecteristics matches
                         num_match ++;
+                        //No need to compare once you find a match for one charecteristics
                         break;
                     }
                 }    
